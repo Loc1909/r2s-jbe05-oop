@@ -49,7 +49,7 @@ public class BrandDAOImpl implements BrandDAO {
 
     @Override
     public Brand findById(int brandId) throws DAOException {
-        String sql = "SELECT * FROM brands WHERE brand_id=?";
+        String sql = "SELECT brand_id, brand_name FROM brands WHERE brand_id = ?";
         try (Connection conn = JDBCUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, brandId);
@@ -66,7 +66,7 @@ public class BrandDAOImpl implements BrandDAO {
     @Override
     public List<Brand> findAll() throws DAOException {
         List<Brand> list = new ArrayList<>();
-        String sql = "SELECT * FROM brands";
+        String sql = "SELECT brand_id, brand_name FROM brands";
         try (Connection conn = JDBCUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
