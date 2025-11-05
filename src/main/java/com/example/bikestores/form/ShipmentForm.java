@@ -12,7 +12,7 @@ public class ShipmentForm {
     public static Shipment inputScheduleShipment() {
         int orderId = ScannerUtil.readInt("Enter order ID (paid): ");
         String address = ScannerUtil.readNonEmptyString("Enter shipping address: ");
-        String carrier = ScannerUtil.readNonEmptyString("Enter carrier (e.g., DHL/UPS/VNPost): ");
+        String carrier = ScannerUtil.readNonEmptyString("Enter carrier: ");
         String method = ValidationUtil.readShippingMethod("Enter shipping method (standard/express/pickup): ");
         String tracking = ScannerUtil.readNonEmptyString("Enter tracking number: ");
 
@@ -47,7 +47,7 @@ public class ShipmentForm {
             String.format("Enter shipping method (%s/%s/%s): ",
                 Constants.METHOD_STANDARD, Constants.METHOD_EXPRESS, Constants.METHOD_PICKUP)
         );
-        String carrier = ScannerUtil.readNonEmptyString("Enter carrier (e.g., DHL/UPS/VNPost): ");
+        String carrier = ScannerUtil.readNonEmptyString("Enter carrier: ");
 
         Shipment s = new Shipment();
         s.setShipmentId(shipmentId);

@@ -50,7 +50,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 		sb.append("SELECT review_id, customer_id, product_id, rating, comment, review_date FROM reviews WHERE product_id=?");
 		if (minRating != null)
             sb.append(" AND rating >= ?");
-		sb.append(sortNewest ? " ORDER BY review_date DESC, review_id DESC" : " ORDER BY review_date ASC, review_id ASC");
+		sb.append(sortNewest ? " ORDER BY review_date DESC, review_id DESC" : "");
 		String sql = sb.toString();
 
 		List<Review> list = new ArrayList<>();
