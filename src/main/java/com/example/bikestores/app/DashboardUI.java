@@ -1,5 +1,7 @@
 package com.example.bikestores.app;
 
+import com.example.bikestores.util.Constants;
+
 import static com.example.bikestores.util.ScannerUtil.readInt;
 
 public class DashboardUI {
@@ -85,6 +87,20 @@ public class DashboardUI {
 
     private void handleShippingReview() {
         System.out.println("\nNavigating to Shipping & Review Module...");
+        int sub;
+        do {
+            System.out.println("\n-- Shipping & Review --");
+            System.out.println("1. Shipping Module");
+            System.out.println("2. Review Module");
+            System.out.println(Constants.MENU_BACK + ". Back");
+            sub = readInt("Choose: ");
+            switch (sub) {
+                case 1 -> ShipmentApp.run();
+                case 2 -> ReviewApp.run();
+                case Constants.MENU_BACK -> System.out.println("Back.");
+                default -> System.out.println("Invalid choice.");
+            }
+        } while (sub != Constants.MENU_BACK);
     }
 
     private void handleWishlistDiscount() {
